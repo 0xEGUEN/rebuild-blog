@@ -3,7 +3,6 @@ import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import mdx from '@astrojs/mdx';
 import tailwind from '@astrojs/tailwind';
-import { remarkReadingTime } from './src/utils/remark-reading-time.mjs';
 
 // https://astro.build/config
 const SITE_URL = process.env.SITE_URL || 'https://yourdomain.vercel.app';
@@ -28,7 +27,7 @@ export default defineConfig({
       wrap: true,
       langs: [],
     },
-    remarkPlugins: [remarkReadingTime, 'remark-toc'],
+    remarkPlugins: ['remark-toc'],
     rehypePlugins: ['rehype-pretty-code'],
   },
   redirects: {
