@@ -1,0 +1,74 @@
+---
+import { AUTHOR_NAME, AUTHOR_TWITTER, AUTHOR_GITHUB, SITE_URL } from '../../constants/site';
+---
+
+<footer class="bg-gray-50 dark:bg-slate-800 border-t border-gray-200 dark:border-slate-700 mt-16">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    {/* Main Footer Content */}
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+      {/* About */}
+      <div>
+        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">About</h3>
+        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+          A modern, minimalist blog platform built with Astro. Fast, performant, and beautifully designed.
+        </p>
+      </div>
+
+      {/* Quick Links */}
+      <div>
+        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Quick Links</h3>
+        <ul class="space-y-2 text-sm">
+          <li>
+            <a href="/" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition">
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="/blog" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition">
+              Blog
+            </a>
+          </li>
+          <li>
+            <a href="/about" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition">
+              About
+            </a>
+          </li>
+          <li>
+            <a href="/contact" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition">
+              Contact
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      {/* Social Links */}
+      <div>
+        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Follow</h3>
+        <div class="flex space-x-4">
+          {AUTHOR_TWITTER && (
+            <a href={`https://twitter.com/${AUTHOR_TWITTER.replace('@', '')}`} target="_blank" rel="noopener noreferrer" class="text-gray-600 dark:text-gray-400 hover:text-blue-400 transition text-2xl">
+              𝕏
+            </a>
+          )}
+          {AUTHOR_GITHUB && (
+            <a href={`https://github.com/${AUTHOR_GITHUB}`} target="_blank" rel="noopener noreferrer" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition text-2xl">
+              ⚙
+            </a>
+          )}
+          <a href="/rss.xml" class="text-gray-600 dark:text-gray-400 hover:text-orange-500 transition text-2xl">
+            📡
+          </a>
+        </div>
+      </div>
+    </div>
+
+    {/* Divider */}
+    <hr class="border-gray-200 dark:border-slate-700 mb-8" />
+
+    {/* Bottom Footer */}
+    <div class="flex flex-col md:flex-row justify-between items-center text-sm text-gray-600 dark:text-gray-400">
+      <p>&copy; {new Date().getFullYear()} {AUTHOR_NAME}. All rights reserved.</p>
+      <p>Built with <a href="https://astro.build" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:underline">Astro</a> & <a href="https://tailwindcss.com" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:underline">Tailwind CSS</a></p>
+    </div>
+  </div>
+</footer>

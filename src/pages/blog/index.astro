@@ -1,16 +1,79 @@
 ---
-const title = "Blog";
+import PageLayout from '../../layouts/PageLayout.astro';
+import Header from '../../components/shared/Header.astro';
+import Footer from '../../components/shared/Footer.astro';
+import BlogCard from '../../components/blog/BlogCard.astro';
+
+const title = 'Blog';
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title}</title>
-  </head>
-  <body>
-    <h1>Blog Posts</h1>
-    <p>Welcome to the blog. Posts will appear here soon.</p>
-  </body>
-</html>
+<PageLayout title={title}>
+  <Header />
+
+  <div class="py-12">
+    {/* Page Header */}
+    <div class="mb-12">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+        Blog Articles
+      </h1>
+      <p class="text-lg text-gray-600 dark:text-gray-400">
+        Thoughts, tutorials, and insights about technology and development.
+      </p>
+    </div>
+
+    {/* Search & Filter */}
+    <div class="mb-8 flex gap-4">
+      <input
+        type="text"
+        placeholder="Search articles..."
+        class="flex-1 px-4 py-2 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+      <select class="px-4 py-2 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <option value="">All Categories</option>
+        <option value="technology">Technology</option>
+        <option value="tutorial">Tutorial</option>
+        <option value="lifestyle">Lifestyle</option>
+      </select>
+    </div>
+
+    {/* Blog Grid - Empty State */}
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <BlogCard
+        title="Getting Started with Astro"
+        description="Learn how to build fast, modern websites with Astro and static site generation."
+        category="Technology"
+        author="Author Name"
+        date="2024-05-31"
+        readTime="5 min read"
+        href="/blog/getting-started-with-astro"
+      />
+      <BlogCard
+        title="The Future of Web Development"
+        description="Exploring emerging trends and technologies that will shape web development in the coming years."
+        category="Technology"
+        author="Author Name"
+        date="2024-05-30"
+        readTime="8 min read"
+        href="/blog/future-of-web-development"
+      />
+    </div>
+
+    {/* Pagination */}
+    <div class="mt-12 flex justify-center gap-2">
+      <button class="px-4 py-2 rounded-lg border border-gray-300 dark:border-slate-600 text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-slate-700 transition">
+        ← Prev
+      </button>
+      <button class="px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition">
+        1
+      </button>
+      <button class="px-4 py-2 rounded-lg border border-gray-300 dark:border-slate-600 text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-slate-700 transition">
+        2
+      </button>
+      <button class="px-4 py-2 rounded-lg border border-gray-300 dark:border-slate-600 text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-slate-700 transition">
+        Next →
+      </button>
+    </div>
+  </div>
+
+  <Footer />
+</PageLayout>

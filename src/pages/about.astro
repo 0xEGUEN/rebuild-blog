@@ -1,16 +1,47 @@
 ---
-const title = "About";
+import PageLayout from '../layouts/PageLayout.astro';
+import Header from '../components/shared/Header.astro';
+import Footer from '../components/shared/Footer.astro';
+import { AUTHOR_NAME } from '../constants/site';
+
+const title = 'About';
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title}</title>
-  </head>
-  <body>
-    <h1>About</h1>
-    <p>Learn more about this blog.</p>
-  </body>
-</html>
+<PageLayout title={title}>
+  <Header />
+
+  <div class="py-12 max-w-3xl mx-auto">
+    {/* Page Header */}
+    <div class="mb-12">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">About Me</h1>
+      <p class="text-lg text-gray-600 dark:text-gray-400">
+        Welcome to my corner of the internet. Here you'll find my thoughts on tech, development, and life.
+      </p>
+    </div>
+
+    {/* Content */}
+    <div class="prose dark:prose-invert max-w-none">
+      <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+        I'm {AUTHOR_NAME}, a passionate developer and content creator dedicated to sharing knowledge about modern web development.
+      </p>
+
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">What I Do</h2>
+      <p class="text-gray-600 dark:text-gray-400 mb-4">
+        I specialize in building fast, modern websites using cutting-edge technologies like Astro, TypeScript, and TailwindCSS.
+      </p>
+
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">This Blog</h2>
+      <p class="text-gray-600 dark:text-gray-400 mb-4">
+        This blog is built with Astro, a modern static site generator that prioritizes performance and developer experience.
+        It's deployed on Vercel and supports dark mode, responsive design, and fast loading times.
+      </p>
+
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">Get In Touch</h2>
+      <p class="text-gray-600 dark:text-gray-400">
+        Feel free to reach out through the <a href="/contact" class="text-blue-600 dark:text-blue-400 hover:underline">contact page</a> or find me on social media.
+      </p>
+    </div>
+  </div>
+
+  <Footer />
+</PageLayout>
