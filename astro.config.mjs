@@ -1,7 +1,6 @@
 import { defineConfig } from 'astro/config';
-import react from '@astrojs/react';
-import sitemap from '@astrojs/sitemap';
 import mdx from '@astrojs/mdx';
+import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
@@ -11,7 +10,6 @@ export default defineConfig({
   site: SITE_URL,
   output: 'static',
   integrations: [
-    react(),
     sitemap(),
     mdx(),
     tailwind({
@@ -25,12 +23,6 @@ export default defineConfig({
     shikiConfig: {
       theme: 'github-dark',
       wrap: true,
-      langs: [],
     },
-    remarkPlugins: ['remark-toc'],
-    rehypePlugins: ['rehype-pretty-code'],
-  },
-  redirects: {
-    '/': '/blog',
   },
 });
