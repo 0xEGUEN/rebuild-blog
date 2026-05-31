@@ -1,0 +1,21 @@
+# Vercel Ignore - Files to ignore during build
+.git
+.gitignore
+README.md
+VERCEL_SETUP.md
+DEPLOYMENT_GUIDE.md
+LICENSE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+.DS_Store
+node_modules
+pnpm-lock.yaml
+yarn.lock
+
+# Development files
+.env.example
+.env.local
+.env.*.local
